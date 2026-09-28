@@ -18,12 +18,18 @@ XTermPro 不只是终端模拟器。它以会话树管理连接，以标签和�
 
 ### 核心功能
 
+- 笔记空间：持久新建、自动保存、分组与回收站、可配置存储位置；支持多个独立进程共享空间、自动同步目录及同笔记保存冲突保护；会话与笔记独立折叠，工具栏统一主题气泡样式。见 [使用示例](docs/note-space/EXAMPLES.md) 和 [验收状态](docs/note-space/TESTING.md)（macOS 本地验收通过，Windows/Linux 由用户人工验收）。
+
 #### 连接与工作区
 
 - SSH2 远程终端，支持密码、托管凭据、私钥和跳板代理
+- SSH 终端支持主题背景、背景图片、透明玻璃三选一背景；透明度实时调整，文字可跟随主题、增强字重或自定义颜色（保留 ANSI 色）；Windows/Linux 原生效果待对应平台验证，操作见 [透明玻璃示例](docs/ssh-terminal-glass/EXAMPLES.md)
 - 可搜索的会话树、多标签工作区和 SSH 分屏
+- SSH 快速连接支持会话名称和归属目录，留空自动命名；见 [使用示例](docs/ssh-session-identity/EXAMPLES.md)
+- 精简 SSH 标签菜单：连接与标签操作留在右键；记录、传输、布局和终端旁编辑按功能归入顶部菜单，见 [菜单入口指南](docs/terminal-menu-organization/EXAMPLES.md)
 - 清晰的连接、失败、断开与原标签重连状态
-- 本地终端、最近文件和文本文件编辑
+- 本地终端、最近文件和文本文件编辑；编辑器支持按内容类型提供离线词汇、关键词、字段和片段补全。见 [补全示例](docs/local-file-editor-floating-workspace/EXAMPLES.md#内容感知自动补全fr-26) 与 [平台验收状态](docs/local-file-editor-floating-workspace/TESTING.md)。
+- 本地 HTML 可静态预览并显式运行页面脚本，普通 JavaScript 可显式运行并查看页面及控制台；预览引擎随运行包交付，无需用户另装浏览器、Node 或 Qt。Markdown 继续使用原有预览。见 [网页预览样例](examples/file-editor-web-preview/README.md)；Windows/Linux 安装包原生验收待用户完成，详情见 [验收记录](docs/local-file-editor-floating-workspace/TESTING.md#fr-27-用户手动平台验收最新授权)。
 - 浅色、深色与高对比度主题
 - 简体中文、英文及自动语言选择
 
@@ -57,57 +63,68 @@ XTermPro 不只是终端模拟器。它以会话树管理连接，以标签和�
 #### 可选与预览能力
 
 - **RDP 远程桌面：** 支持直接连接和 SSH 隧道场景，当前仍属于开发测试能力
-- **Kubernetes / Cilium：** 实际能力取决于运行包版本、集群组件和 RBAC 权限
+- **Kubernetes / Cilium：** [新建 K8s 连接与托管凭据](docs/K8S_CONNECTION_CREDENTIAL_EXAMPLES.md)，支持 Token、证书、OIDC、Exec、kubeconfig 导入和单跳 SSH；实际能力取决于运行包版本、集群组件和 RBAC 权限。平台验收状态见 [测试记录](docs/K8S_CONNECTION_CREDENTIAL_TESTING.md)。
 - **AI 助手：** 需要用户自行配置兼容的模型服务及访问凭据
 - **Agent / iChat：** 取决于运行包版本、服务端部署、账号权限和功能开关
 - **终端录制与云同步：** 取决于运行包是否包含相应组件及服务配置
 
-### 近期更新（2026-09-20—2026-09-21）
+### 近期更新 · 2026-09-23—2026-09-27
 
-以下说明汇总本仓库近期已提交的功能与修复；不代表所有平台均已验收或对应安装包已经发布。具体使用方式、测试范围与未完成项见各功能文档。
+本轮更新覆盖 9 月 22 日之后已提交的功能、体验优化与问题修复：把连接管理、编辑、记录和集群巡检串联到同一个工作区。以下为实现进展，平台验收范围见本节末尾。
 
-#### 功能迭代
+#### 笔记空间与编辑器：边操作，边积累
 
-- **SSH 连接控制：** 展示实际连接阶段和重试倒计时，支持超时、初次连接重试与取消；首次连接需要明确确认主机密钥，初连重试与已建立会话的断线恢复分别处理。
-- **记录、历史与截图：** 新增可见文本记录、分片历史查看与跨分片查找；支持当前可见区域或保留缓存的分页 PNG 截图及水印。记录默认关闭，可按会话配置和手动启停。
-- **Serial 与 Named Pipe：** 串口支持端口枚举、手动输入、参数设置、保存会话、记录和截图；Windows 本地 Named Pipe 支持连接已有双向 byte-mode 管道，其他平台禁用该入口。
-- **终端文件传输：** 新增 XMODEM、YMODEM、ZMODEM 收发能力，支持进度、取消和接收文件保护；YMODEM/ZMODEM 支持批量传输。远端执行 `rz` 时可识别上传请求并打开本地文件选择，执行 `sz` 时先确认再接收。
-- **SFTP 本地导航：** 路径栏增加主题化目录选择器，路径、目录树与文件列表同步更新；Windows 增加盘符导航。
+- **持久笔记空间**：新建、自动保存、分组、回收站、导入导出及存储位置切换；多个独立进程可共享空间，同一笔记发生保存冲突时保留编辑内容，避免静默覆盖。
+- **更清晰的文件导航**：已打开文件集中在笔记空间中，固定在回收站上方；修复默认分组选中、树移动后新建位置及保存失败恢复问题。
+- **离线内容补全**：按内容类型提供本地词汇、关键词、字段和片段建议；支持普通与悬浮编辑器，修复自动保存打断补全、HTML 分隔符插入和弹层位置问题。
+- **HTML / JavaScript 预览**：HTML 可静态预览，页面脚本与独立 JavaScript 需显式运行；可查看页面及控制台，Markdown 保持原有预览流程，运行包携带预览引擎。
 
-操作入口与配置示例见 [终端增强使用示例](docs/terminal-enhancements/EXAMPLES.md)。
+![最新构建的笔记空间与 Markdown 编辑器](docs/readme-updates-20260927/assets/latest-notes-editor.png)
 
-#### 问题修复与性能改进
+*最新源码构建的英文界面，使用本次新建的公开示例文件；显示笔记导航、文件标签与语法高亮。*
 
-- **SSH 生命周期：** 修复失败连接的资源释放及对相邻标签的影响；优化大量失败标签关闭时的重复刷新，并缓存标签标题测量结果。
-- **会话树与串口：** 修复切换标签时运行中会话行被重建、选择状态重置的问题，以及 macOS 模拟串口对端退出的识别。
-- **macOS 弹窗稳定性：** 为配置管理和会话日志窗口补充 Cocoa 辅助功能兼容保护，修复对应入口的崩溃问题。
-- **macOS 授权保留：** 改进签名和安装场景下的设备绑定兼容，保留已有许可证及试用身份、到期时间；修复构建时 OpenSSL 工具架构不匹配导致的公钥校验失败。
-- **iChat 断线恢复：** 增加断开后的重试和关闭入口，合并重复重试、忽略过期回调，同步完成后恢复聊天；关闭聊天窗口不影响共享身份和终端会话。此次修复不代表此前反馈的进程退出根因已确认。
+使用与验证：[笔记空间](docs/note-space/EXAMPLES.md) · [编辑器补全](docs/local-file-editor-floating-workspace/EXAMPLES.md#内容感知自动补全fr-26) · [网页预览样例](examples/file-editor-web-preview/README.md)。
 
-#### UI 优化
+#### Kubernetes：受管连接与一键巡检
 
-- 统一主题化胶囊页签，优化选中、悬停、焦点、禁用及溢出状态。
-- 修复 SSH 连接状态卡片内容裁切，调整截图范围弹窗的紧凑布局和说明换行。
-- 截图结果、功能授权限制提示、终端复制反馈及会话日志详情跟随应用主题。
-- 修复弹出层残留矩形边框、文本选区对比度，以及徽标、箭头、脚本、分屏和辅助区域的主题刷新。
-- macOS 原生标题栏与窗口配色同步更新；设备页面支持运行时语言切换。
+- **保存与复用集群连接**：从文件菜单创建 K8s 连接，在会话树打开、重连和定位已连接工作台；支持 kubeconfig 导入、上下文选择和 SSH 引用。
+- **统一凭据管理**：支持 Token、客户端证书、OIDC 及经批准的 exec 认证；显示已保存凭据状态与证书摘要，完善 Minikube 扩展兼容及粘贴外部证书路径时的操作提示。
+- **一键只读巡检**：已实现 21 项检查模块（默认启用 16 项），覆盖节点、工作负载、Pod、网络、存储和名称空间治理，支持进度与取消。
+- **可留存的巡检报告**：生成中英文离线 HTML，展示异常、风险、建议及未知判断，提供资源明细和对应证据；报告自动归档到笔记空间，文件名包含集群名称和日期。
 
-#### 主题更新
+![最新 Kubernetes 连接配置界面](docs/readme-updates-20260927/assets/latest-k8s-connection.png)
 
-内置主题扩展至 **22 套**，在现有主题基础上增加两批柔和与自然风格配色：
+*本次重新打开的新建连接界面，使用保留示例域名；未填写凭据、保存连接或访问集群。巡检报告本轮未重新截图。*
 
-- **首批六套：** 薄荷、海盐、日落、樱桃奶油、雾紫、玫瑰可可。
-- **新增八套：** 桃桃、晴紫、燕麦、夜鸢、草莓牛奶、奶油布丁、山岚、星湖。
+使用与验证：[连接与凭据](docs/K8S_CONNECTION_CREDENTIAL_EXAMPLES.md) · [连接验收](docs/K8S_CONNECTION_CREDENTIAL_TESTING.md) · [巡检进度](docs/k8s-utils/TASKS.md) · [巡检验证](docs/k8s-utils/TESTING.md)。
 
-在外观设置中可预览、应用或取消主题，并保存选择供重启后恢复。主题统一覆盖控件、页签和选区；应用 UI 主题与终端配色方案分别管理。预览及说明见 [主题使用示例](docs/theme-refresh/EXAMPLES.md)。
+#### SSH 与文件传输：减少重复操作
 
-#### 验证范围与待跟进项
+- **多会话命令目标**：在助手的 SSH 会话模式中通过 `@` 添加多个目标，发送前可逐个移除；发送后清空选择，并分别反馈提交结果。命令执行结果仍以各终端输出为准。
+- **快捷连接与排序**：快速连接可填写会话名称和目录；保存连接按协议和名称排序，文件夹优先，已连接入口保留在末尾，并高亮当前连接。
+- **自动启动接收端**：在支持的 POSIX shell 和 lrzsz 环境中，发送 X/Y/ZMODEM 文件时自动启动匹配接收程序；取消传输时保留终端连接，并区分握手等待与实际传输。
+- **大文件转交 SFTP**：超出 ZMODEM 引擎边界的文件经明确确认转交 SFTP，支持进度、取消与续传相关处理。1 TiB 稀疏高偏移测试已覆盖，完整 1 TiB 上传与全文件校验未执行。
+- **菜单更聚焦**：标签右键保留连接和标签操作，记录、传输、布局及终端旁编辑归入对应顶部菜单。
 
-- **已有验证记录：** macOS 构建与相关专项测试、22 套主题的 Cocoa 检查、真实 SSH `rz`/`sz` 文件往返，以及 100 路独立模拟串口的轻量收发和生命周期验证。模拟串口结果不代表实物设备、高吞吐或长期稳定性验收。
-- **待对应平台验证：** Windows/Linux 原生终端增强、主题和 SFTP 导航；Windows Named Pipe 仍需 Windows 原生验收。
-- **仍在推进：** 终端增强父功能、完整逐项 UI 点击验收及更高档位 SSH 容量验证尚未全部完成；不把局部修复或压力抽查等同于完整验收。
+![最新 SSH 快捷连接界面，包含会话名称与目录](docs/readme-updates-20260927/assets/latest-ssh-connection.png)
 
-详细证据与限制见 [终端增强测试记录](docs/terminal-enhancements/TESTING.md)、[终端增强任务状态](docs/terminal-enhancements/TASKS.md)、[主题测试记录](docs/theme-refresh/TESTING.md)、[授权测试记录](docs/activation-license-v2/TESTING.md)及 [iChat 断线恢复测试记录](docs/ichat-disconnect-recovery/TESTING.md)。
+使用与验证：[多目标命令](docs/ssh-session-mention/EXAMPLES.md) · [自动发送](docs/terminal-auto-send/EXAMPLES.md) · [大文件传输验证](docs/terminal-large-file-transfer/TESTING.md) · [菜单指南](docs/terminal-menu-organization/EXAMPLES.md)。
+
+#### 主题与桌面体验：让外观跟随工作方式
+
+- **22 套主题的应用图标适配**：本轮为现有主题补齐对应应用图标；22 套主题本身并非全部在本轮新增。
+- **SSH 透明玻璃背景**：主题背景、背景图片与透明玻璃三选一，透明度实时调整；支持跟随主题或自定义前景色，并保留 ANSI 颜色。
+- **细节与稳定性修复**：改善下拉菜单边框与屏幕边缘定位、工具提示透明圆角、会话菜单图标；修复 macOS Dock 重新激活窗口、托盘通知图片崩溃及透明标题栏拖动问题。
+
+![最新外观设置与主题预览](docs/readme-updates-20260927/assets/latest-appearance.png)
+
+*本次从最新构建打开外观设置后直接截图；未复用旧图标拼图或玻璃测试背景。*
+
+使用与验证：[透明背景](docs/ssh-terminal-glass/EXAMPLES.md) · [透明背景验证](docs/ssh-terminal-glass/TESTING.md)。
+
+#### 当前验证范围
+
+上述功能已有对应的 macOS 构建、定向测试或原生验收记录，具体范围以链接文档为准。Windows/Linux 原生效果与安装包验收仍按各功能计划推进；Kubernetes 巡检整体仍为 **In Progress**，尚有认证组合、版本及平台矩阵待验收。本节截图均为本次从最新源码构建重新采集的 macOS 英文界面，使用隔离示例数据；不代表生产集群、全平台或最终发布验收通过。开发构建标题显示 1.0.0，是当前 CMake 默认版本值，并非已发布版本号。
 
 ### 工作区布局
 
@@ -197,7 +214,9 @@ XTermPro is more than a terminal emulator. It organizes connections in a session
 #### Connections and workspace
 
 - SSH2 terminal sessions with password, managed-credential, private-key, and jump-host options
+- SSH terminals support mutually exclusive solid, image, and transparent-glass backgrounds, configurable opacity, and text-legibility protection; native Windows/Linux effects await platform validation. See the [glass background example](docs/ssh-terminal-glass/EXAMPLES.md)
 - Searchable session tree, tabbed workspace, and split SSH views
+- Quick SSH connections support a session name and folder, with automatic naming; see the [example](docs/ssh-session-identity/EXAMPLES.md)
 - Clear connecting, failure, disconnected, and in-place reconnect states
 - Local terminals, recent files, and text-file editing
 - Light, dark, and high-contrast themes
@@ -230,57 +249,68 @@ Some proxy-plus-SFTP combinations are intentionally disabled. Follow the availab
 #### Optional and preview capabilities
 
 - **RDP remote desktop:** direct and SSH-tunnel scenarios; currently a development-preview capability
-- **Kubernetes / Cilium:** availability depends on the package version, cluster components, and RBAC permissions
+- **Kubernetes / Cilium:** [manual connections and managed credentials](docs/K8S_CONNECTION_CREDENTIAL_EXAMPLES.md) support Token, certificates, OIDC, Exec and a single SSH jump. Availability depends on package version, cluster components and RBAC; see [validation status](docs/K8S_CONNECTION_CREDENTIAL_TESTING.md).
 - **AI assistant:** requires a compatible model service and user-supplied credentials
 - **Agent / iChat:** depends on the package version, server deployment, account permissions, and feature flags
 - **Recording and cloud sync:** depend on the components and service configuration included with the package
 
-### Recent updates (September 20–21, 2026)
+### Recent updates · September 23–27, 2026
 
-This summary covers recently committed changes in this repository. It does not imply acceptance on every platform or availability in a published package. Feature documents contain usage instructions, evidence, and remaining work.
+These committed updates after September 22 bring connection management, editing, notes, and cluster inspection into a more connected workspace. Implementation progress and platform acceptance are distinguished below.
 
-#### Feature updates
+#### Notes and editing: keep knowledge alongside your work
 
-- **SSH connection controls:** observed connection phases, retry countdowns, timeout settings, initial retries, and cancellation. First-use host keys require explicit trust; initial retries remain separate from established-session recovery.
-- **Recording, history, and captures:** visible-text recording, paged history with search across parts, and watermarked PNG captures of the visible area or retained history. Recording is off by default, with per-session settings and manual controls.
-- **Serial and Named Pipe:** serial port discovery/manual entry, connection settings, saved sessions, recording, and captures. Local Windows Named Pipe sessions connect to existing duplex byte-mode pipes; the entry is disabled on other platforms.
-- **Terminal file transfers:** XMODEM, YMODEM, and ZMODEM sending/receiving with progress, cancellation, and protected file reception; YMODEM/ZMODEM support batches. Remote `rz` requests can open the local upload picker, while `sz` reception requires confirmation.
-- **SFTP local navigation:** a themed directory picker keeps the path, tree, and file list synchronized; Windows gains drive navigation.
+- **Persistent note spaces:** create, autosave, group, recover from trash, import/export, and switch storage locations. Independent processes can share a space; conflicting edits are retained rather than silently overwritten.
+- **Clearer file navigation:** opened files now live in the note space immediately above Trash. Fixes cover default-group selection, new-note destinations after tree moves, and recovery from failed saves.
+- **Offline content-aware completion:** local words, keywords, fields, and snippets in regular and floating editors. Fixes preserve suggestions across autosave, retain HTML delimiters, and improve popup positioning.
+- **HTML / JavaScript preview:** preview static HTML, explicitly run page scripts or standalone JavaScript, and inspect the page and console. Markdown keeps its existing workflow; the preview engine ships with the package.
 
-See the [terminal enhancement examples](docs/terminal-enhancements/EXAMPLES.md) for controls and configuration.
+![Current note space and Markdown editor](docs/readme-updates-20260927/assets/latest-notes-editor.png)
 
-#### Fixes and performance
+*Fresh capture of the current source build in English, with a newly created public sample file, note navigation, file tabs, and syntax highlighting.*
 
-- **SSH lifecycle:** release failed-connection resources and preserve neighboring tabs; reduce repeated refreshes during bulk failure-tab closure and cache tab-title measurements.
-- **Session tree and serial:** preserve runtime rows and selection when switching tabs; detect simulated serial peer hangup on macOS.
-- **macOS dialog stability:** add Cocoa accessibility compatibility guards for crashes in configuration-management and session-log dialogs.
-- **macOS activation:** improve device-binding compatibility across signing and installation while preserving existing licenses, trial identity, and expiration; fix public-key validation failures caused by a build-time OpenSSL architecture mismatch.
-- **iChat recovery:** add retry/close controls after disconnection, coalesce retries, reject stale callbacks, and restore chat after synchronization. Closing chat preserves shared identity and terminal sessions. The previously reported process-exit root cause remains unconfirmed.
+Guides and evidence: [Note spaces](docs/note-space/EXAMPLES.md) · [Editor](docs/local-file-editor-floating-workspace/EXAMPLES.md) · [Web preview examples](examples/file-editor-web-preview/README.md).
 
-#### UI improvements
+#### Kubernetes: managed connections and one-click inspection
 
-- Shared themed capsule tabs with consistent selected, hover, focus, disabled, and overflow states.
-- Fix clipped SSH status cards and make capture-scope dialogs compact with wrapping descriptions.
-- Apply the current theme to capture results, license-restriction prompts, terminal copy feedback, and session-log details.
-- Remove residual rectangular popup frames, improve text-selection contrast, and refresh badges, arrows, scripts, split panes, and assistant surfaces with theme changes.
-- Synchronize macOS native titlebars/window colors and update device pages when the language changes at runtime.
+- **Reusable cluster connections:** create K8s connections from the File menu, open and reconnect from the session tree, and locate connected workbenches. Includes kubeconfig import, context selection, and SSH references.
+- **Managed credentials:** Token, client certificates, OIDC, and approved exec authentication, with saved-credential status and certificate summaries. Improvements cover Minikube extensions and guidance for pasted external certificate paths.
+- **Read-only inspection:** 21 implemented modules, with 16 enabled by default, covering nodes, workloads, Pods, networking, storage, and namespace governance, with progress and cancellation.
+- **Reports you can retain:** localized, offline HTML reports distinguish faults, risks, recommendations, and unknown assessments, with inventory tables and supporting evidence. Reports are archived to the note space with cluster names and dates in filenames.
 
-#### Theme updates
+![Current Kubernetes connection configuration](docs/readme-updates-20260927/assets/latest-k8s-connection.png)
 
-The built-in collection now contains **22 themes**, including two recent groups of softer and nature-inspired palettes:
+*Fresh capture of the connection form using a reserved example domain. No credentials were entered, no connection was saved, and no cluster was accessed. An inspection report was not recaptured in this session.*
 
-- **First six additions:** Mint, Sea Salt, Sunset, Cherry Cream, Lavender, and Rose Cocoa.
-- **Eight further additions:** Peach Blush, Lilac Sky, Oat Linen, Plum Night, Strawberry Milk, Vanilla Pudding, Mountain Mist, and Starlit Lake.
+Guides and evidence: [Connections and credentials](docs/K8S_CONNECTION_CREDENTIAL_EXAMPLES.md) · [Connection acceptance](docs/K8S_CONNECTION_CREDENTIAL_TESTING.md) · [Inspection progress](docs/k8s-utils/TASKS.md) · [Inspection validation](docs/k8s-utils/TESTING.md).
 
-Appearance settings support preview, apply, cancel, and persistence across restarts. Controls, tabs, and selection surfaces share theme styling; application themes and terminal color schemes remain separate. See the [theme examples](docs/theme-refresh/EXAMPLES.md).
+#### SSH and transfers: fewer repeated steps
 
-#### Validation and remaining work
+- **Multiple command targets:** use `@` in the assistant's SSH session mode to add targets and remove individual selections before sending. Targets clear after submission, with a result for each connection; remote execution results remain in the respective terminals.
+- **Quick connect and ordering:** specify a session name and folder during quick connect. Saved connections sort by protocol and name, folders remain first, Connected remains last, and the active connection is highlighted.
+- **Automatic receiver startup:** start the matching X/Y/ZMODEM receiver in supported POSIX shell and lrzsz environments. Cancellation preserves the terminal connection; handshake waiting is distinguished from payload transfer.
+- **Large-file SFTP handoff:** files beyond the ZMODEM engine limit can explicitly switch to SFTP, with progress, cancellation, and resume handling. Sparse high-offset tests cover 1 TiB; a complete 1 TiB upload and full-file verification have not been performed.
+- **Focused menus:** tab context menus retain connection and tab actions, while recording, transfers, layout, and adjacent editing live in their respective top menus.
 
-- **Recorded evidence:** macOS builds and focused tests, Cocoa checks for all 22 themes, real SSH `rz`/`sz` round trips, and lightweight traffic/lifecycle checks across 100 independent simulated serial connections. These serial results do not cover physical hardware, high throughput, or long-duration operation.
-- **Pending native platform checks:** Windows/Linux terminal enhancements, themes, and SFTP navigation; Named Pipe still requires native Windows acceptance.
-- **Still in progress:** the terminal-enhancement parent feature, exhaustive UI interaction acceptance, and higher-tier SSH capacity validation. Focused fixes and sampled load checks do not establish complete acceptance.
+![Current SSH quick-connect form with session name and folder](docs/readme-updates-20260927/assets/latest-ssh-connection.png)
 
-See [terminal testing](docs/terminal-enhancements/TESTING.md), [terminal task status](docs/terminal-enhancements/TASKS.md), [theme testing](docs/theme-refresh/TESTING.md), [activation testing](docs/activation-license-v2/TESTING.md), and [iChat recovery testing](docs/ichat-disconnect-recovery/TESTING.md) for evidence and limitations.
+Guides and evidence: [Multiple targets](docs/ssh-session-mention/EXAMPLES.md) · [Automatic sending](docs/terminal-auto-send/EXAMPLES.md) · [Large-file validation](docs/terminal-large-file-transfer/TESTING.md) · [Menu guide](docs/terminal-menu-organization/EXAMPLES.md).
+
+#### Themes and desktop experience
+
+- **Application icons for all 22 themes:** this update adds matching icons to the existing theme collection; it does not introduce 22 new themes.
+- **Transparent SSH backgrounds:** choose a theme background, an image, or transparent glass with live opacity adjustment. Text can follow the theme or use a custom foreground while preserving ANSI colors.
+- **Polish and stability:** improved combo popup borders and screen positioning, transparent tooltip corners, and session-menu icons. Fixes address macOS Dock reactivation, tray notification image crashes, and glass-titlebar dragging.
+
+![Current appearance settings and theme preview](docs/readme-updates-20260927/assets/latest-appearance.png)
+
+*Fresh capture of Appearance Settings in the current build, replacing the historical icon montage and glass-test backdrop.*
+
+Guides and evidence: [Glass backgrounds](docs/ssh-terminal-glass/EXAMPLES.md) · [Glass validation](docs/ssh-terminal-glass/TESTING.md).
+
+#### Validation scope
+
+Linked records describe the applicable macOS builds, focused tests, and native checks. Windows/Linux native behavior and package acceptance remain subject to each feature's plan. Kubernetes inspection remains **In Progress**, with authentication combinations, versions, and platform coverage still pending. All screenshots in this section were freshly captured from the current macOS source build in English with isolated sample data. They do not establish production-cluster, cross-platform, or final release acceptance. The title shows 1.0.0, the current CMake development-build default, not a published release number.
 
 ### Workspace layout
 
