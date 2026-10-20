@@ -10,7 +10,7 @@
 
 ### 产品简介
 
-XTermPro 面向开发者、系统管理员和平台工程师，将远程连接、终端操作、文件传输、笔记、脚本与网络诊断集中到一个多标签桌面工作区。产品支持 Windows、macOS 与 Linux；本目录提供 Windows 和 macOS 的 **3.2.17** 运行包。
+XTermPro 面向开发者、系统管理员和平台工程师，将远程连接、终端操作、文件传输、笔记、脚本与网络诊断集中到一个多标签桌面工作区。产品支持 Windows、macOS 与 Linux；本目录提供 Windows 和 macOS 的 **3.2.18** 运行包。
 
 ### 下载与版本
 
@@ -18,10 +18,10 @@ XTermPro 面向开发者、系统管理员和平台工程师，将远程连接�
 
 | 平台 | 安装包 | 使用方式 |
 | --- | --- | --- |
-| Windows x64 | [3.2.17 安装版](https://github.com/jackm1688/xtermpro/releases/download/v3.2.17/xtermpro-3.2.17-windows-x64-installer.zip) | 解压后运行安装程序 |
-| Windows x64 | [3.2.17 便携版](https://github.com/jackm1688/xtermpro/releases/download/v3.2.17/xtermpro-3.2.17-windows-x64.zip) | 完整解压后启动 |
-| macOS Apple Silicon | [3.2.17 arm64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.17/xtermpro-3.2.17-arm64.dmg) | 打开 DMG，拖入应用程序目录 |
-| macOS Intel | [3.2.17 amd64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.17/xtermpro-3.2.17-amd64.dmg) | 打开 DMG，拖入应用程序目录 |
+| Windows x64 | [3.2.18 安装版](https://github.com/jackm1688/xtermpro/releases/download/v3.2.18/xtermpro-3.2.18-windows-x64-installer.zip) | 解压后运行安装程序 |
+| Windows x64 | [3.2.18 便携版](https://github.com/jackm1688/xtermpro/releases/download/v3.2.18/xtermpro-3.2.18-windows-x64.zip) | 完整解压后启动 |
+| macOS Apple Silicon | [3.2.18 arm64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.18/xtermpro-3.2.18-arm64.dmg) | 打开 DMG，拖入应用程序目录 |
+| macOS Intel | [3.2.18 amd64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.18/xtermpro-3.2.18-amd64.dmg) | 打开 DMG，拖入应用程序目录 |
 
 Linux 运行包未包含在本目录中，请通过产品发布方获取。升级前请关闭应用并备份重要配置；安装包的存在不代表所有平台和功能均已完成验收。
 
@@ -45,7 +45,7 @@ Linux 运行包未包含在本目录中，请通过产品发布方获取。升�
 | [S3 配置指南（Word）](S3配置指南.docx) | 可下载的 Word 版本 |
 | [用户手册（PDF）](XTermPro用户手册.pdf) · [Word](XTermPro用户手册.docx) | 较早版本的补充资料，界面与功能以当前运行包为准 |
 
-图文用户手册的更新记录截至 2026-09-28，未覆盖 3.2.17 的全部变更；S3 功能请结合专项指南使用。HTML 文档建议下载后用浏览器打开。
+图文用户手册的更新记录截至 2026-09-28，未覆盖 3.2.18 的全部变更；S3 功能请结合专项指南使用。HTML 文档建议下载后用浏览器打开。
 
 ### 工作区布局
 
@@ -116,16 +116,16 @@ XTermPro 使用的第三方组件分别受其自身许可证约束；第三方�
 
 ### Overview
 
-XTermPro brings remote connections, terminals, file transfers, notes, scripts, and network diagnostics into one tabbed desktop workspace for developers, system administrators, and platform engineers. The product supports Windows, macOS, and Linux. This directory contains **3.2.17** packages for Windows and macOS.
+XTermPro brings remote connections, terminals, file transfers, notes, scripts, and network diagnostics into one tabbed desktop workspace for developers, system administrators, and platform engineers. The product supports Windows, macOS, and Linux. This directory contains **3.2.18** packages for Windows and macOS.
 
 ### Downloads
 
 | Platform | Package | Usage |
 | --- | --- | --- |
-| Windows x64 | [3.2.17 installer](https://github.com/jackm1688/xtermpro/releases/download/v3.2.17/xtermpro-3.2.17-windows-x64-installer.zip) | Extract and run the installer |
-| Windows x64 | [3.2.17 portable](https://github.com/jackm1688/xtermpro/releases/download/v3.2.17/xtermpro-3.2.17-windows-x64.zip) | Extract the entire archive before launching |
-| macOS Apple Silicon | [3.2.17 arm64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.17/xtermpro-3.2.17-arm64.dmg) | Open the DMG and drag the app into Applications |
-| macOS Intel | [3.2.17 amd64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.17/xtermpro-3.2.17-amd64.dmg) | Open the DMG and drag the app into Applications |
+| Windows x64 | [3.2.18 installer](https://github.com/jackm1688/xtermpro/releases/download/v3.2.18/xtermpro-3.2.18-windows-x64-installer.zip) | Extract and run the installer |
+| Windows x64 | [3.2.18 portable](https://github.com/jackm1688/xtermpro/releases/download/v3.2.18/xtermpro-3.2.18-windows-x64.zip) | Extract the entire archive before launching |
+| macOS Apple Silicon | [3.2.18 arm64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.18/xtermpro-3.2.18-arm64.dmg) | Open the DMG and drag the app into Applications |
+| macOS Intel | [3.2.18 amd64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.18/xtermpro-3.2.18-amd64.dmg) | Open the DMG and drag the app into Applications |
 
 Linux packages are available separately from the publisher. Close the app and back up important configuration before upgrading. Package availability does not establish complete platform or feature acceptance.
 
@@ -151,7 +151,7 @@ The following documents are in Chinese. Download HTML files and open them in a b
 | [S3 configuration guide (Word)](S3配置指南.docx) | Downloadable Word edition |
 | [Earlier user manual (PDF)](XTermPro用户手册.pdf) · [Word](XTermPro用户手册.docx) | Supplementary older documentation; the installed package determines current behavior |
 
-The illustrated manual's change history ends on September 28, 2026 and does not cover every 3.2.17 change. Refer to the dedicated S3 guide for object storage.
+The illustrated manual's change history ends on September 28, 2026 and does not cover every 3.2.18 change. Refer to the dedicated S3 guide for object storage.
 
 ### Workspace layout
 
