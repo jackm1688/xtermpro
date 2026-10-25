@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 import zipfile
 
 spec = importlib.util.spec_from_file_location('release', Path(__file__).resolve().parents[1] / 'scripts/release.py')
@@ -12,6 +13,12 @@ spec.loader.exec_module(release)
 
 
 class ReleaseTests(unittest.TestCase):
+    def test_find_draft_without_existing_tag(self):
+        args = argparse.Namespace(repo='owner/repo', version='1.2.3')
+        draft = {'tag_name': 'v1.2.3', 'draft': True, 'assets': []}
+        with patch.object(release, 'run', return_value=json.dumps([[], [draft]])):
+            self.assertEqual(release.remote(args), draft)
+
     def test_prepare_and_tamper_detection(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

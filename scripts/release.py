@@ -95,7 +95,14 @@ def load_bundle(args):
 
 
 def remote(args):
-    return json.loads(run('gh', 'api', f'repos/{args.repo}/releases/tags/v{args.version}'))
+    # The tag endpoint can return 404 for an unpublished draft without a tag.
+    pages = json.loads(run('gh', 'api', '--paginate', '--slurp',
+                           f'repos/{args.repo}/releases?per_page=100'))
+    matches = [r for page in pages for r in page
+               if r['tag_name'] == f'v{args.version}']
+    if len(matches) != 1:
+        raise ValueError('Expected exactly one matching release')
+    return matches[0]
 
 
 def check_remote(args, manifest, release, complete=True):
