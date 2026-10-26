@@ -38,8 +38,6 @@ Linux 运行包未包含在本目录中，请通过产品发布方获取。升�
 
 ### 使用文档
 
-发布维护人员请参阅 [Release 包发布操作文档](docs/release.md)及[发布脚本](scripts/release.py)。
-
 | 文档 | 内容 |
 | --- | --- |
 | [图文用户手册（HTML）](xtermpro-user-manual.html) | 安装、连接、终端、文件、笔记、Kubernetes、设置与故障排查，可下载后离线打开 |

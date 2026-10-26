@@ -1,0 +1,7 @@
+
+# Local release tooling; keep out of the distribution repository.
+/docs/release.md
+/scripts/release.py
+/tests/test_release.py
+/scripts/__pycache__/
+/tests/__pycache__/
