@@ -5,3 +5,7 @@
 /tests/test_release.py
 /scripts/__pycache__/
 /tests/__pycache__/
+
+# S3 operation guides are kept locally only.
+/S3配置指南*.html
+/S3配置指南*.docx

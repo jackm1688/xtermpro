@@ -29,7 +29,7 @@ Linux 运行包未包含在本目录中，请通过产品发布方获取。升�
 
 - **连接与工作区**：SSH 密码、私钥与托管凭据，跳板与隧道，会话树搜索、多标签、分屏和重连；提供本地终端、Serial 串口与 Windows Named Pipe 连接。
 - **文件传输**：SFTP 双栏浏览、上传下载和命令模式；X/Y/ZMODEM 终端文件传输，具体支持以当前平台和连接类型为准。
-- **S3 对象存储**：连接配置、对象浏览、上传下载及目录同步；支持已有 INI 配置导入和 SSH 路由。AWS S3、腾讯云 COS、阿里云 OSS 等服务的参数和兼容边界见配置指南。
+- **S3 对象存储**：连接配置、对象浏览、上传下载及目录同步；支持已有 INI 配置导入和 SSH 路由。
 - **笔记与文件编辑**：笔记自动保存、分组、回收站、导入导出与存储位置管理；文本编辑、内容补全、Markdown 预览及显式运行的 HTML / JavaScript 预览。
 - **运维工具**：脚本库、多目标命令、终端文本记录、录像与截图、会话日志、网络计算、网络监控和运行资源查看。
 - **Kubernetes / Cilium**：集群连接与凭据管理、资源浏览、日志、Exec、端口转发、监控和巡检报告；实际能力取决于集群组件与 RBAC 权限。
@@ -43,11 +43,9 @@ Linux 运行包未包含在本目录中，请通过产品发布方获取。升�
 | 文档 | 内容 |
 | --- | --- |
 | [图文用户手册（HTML）](xtermpro-user-manual.html) | 安装、连接、终端、文件、笔记、Kubernetes、设置与故障排查，可下载后离线打开 |
-| [S3 配置指南（HTML）](S3配置指南.html) | 云服务参数、连接配置、SSH 路由、同步预览与传输验证 |
-| [S3 配置指南（Word）](S3配置指南.docx) | 可下载的 Word 版本 |
 | [用户手册（PDF）](XTermPro用户手册.pdf) · [Word](XTermPro用户手册.docx) | 较早版本的补充资料，界面与功能以当前运行包为准 |
 
-图文用户手册的更新记录截至 2026-09-28，未覆盖 3.2.22 的全部变更；S3 功能请结合专项指南使用。HTML 文档建议下载后用浏览器打开。
+图文用户手册的更新记录截至 2026-09-28，未覆盖 3.2.22 的全部变更。HTML 文档建议下载后用浏览器打开。
 
 ### 工作区布局
 
@@ -135,7 +133,7 @@ Linux packages are available separately from the publisher. Close the app and ba
 
 - **Connections and workspace:** SSH password, key and managed-credential authentication, jump hosts, tunnels, searchable sessions, tabs, split panes and reconnect; local terminals, Serial and Windows Named Pipe connections.
 - **File transfers:** dual-pane SFTP browsing, uploads, downloads and command mode; X/Y/ZMODEM transfers subject to platform and connection support.
-- **S3 object storage:** connection setup, object browsing, uploads, downloads and directory synchronization, with INI configuration import and SSH routing. See the dedicated guide for AWS S3, Tencent COS, Alibaba OSS and compatibility boundaries.
+- **S3 object storage:** connection setup, object browsing, uploads, downloads and directory synchronization, with INI configuration import and SSH routing.
 - **Notes and editing:** autosave, groups, trash, import/export and storage settings; text editing, content completion, Markdown preview, and explicitly executed HTML / JavaScript previews.
 - **Operations tools:** scripts, multiple command targets, terminal text recording, video recording, screenshots, session logs, network calculations, network monitoring and process/resource views.
 - **Kubernetes / Cilium:** managed connections and credentials, resource browsing, logs, Exec, port forwarding, monitoring and inspection reports. Availability depends on cluster components and RBAC.
@@ -151,11 +149,9 @@ The following documents are in Chinese. Download HTML files and open them in a b
 | Document | Contents |
 | --- | --- |
 | [Illustrated user manual (HTML)](xtermpro-user-manual.html) | Installation, connections, terminals, files, notes, Kubernetes, settings and troubleshooting |
-| [S3 configuration guide (HTML)](S3配置指南.html) | Provider settings, connection setup, SSH routing, sync preview and transfer verification |
-| [S3 configuration guide (Word)](S3配置指南.docx) | Downloadable Word edition |
 | [Earlier user manual (PDF)](XTermPro用户手册.pdf) · [Word](XTermPro用户手册.docx) | Supplementary older documentation; the installed package determines current behavior |
 
-The illustrated manual's change history ends on September 28, 2026 and does not cover every 3.2.22 change. Refer to the dedicated S3 guide for object storage.
+The illustrated manual's change history ends on September 28, 2026 and does not cover every 3.2.22 change.
 
 ### Workspace layout
 
