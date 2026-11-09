@@ -10,7 +10,7 @@
 
 ### 产品简介
 
-XTermPro 面向开发者、系统管理员和平台工程师，将远程连接、终端操作、文件传输、笔记、脚本与网络诊断集中到一个多标签桌面工作区。产品支持 Windows、macOS 与 Linux；本目录提供 Windows 和 macOS 的 **3.2.22** 运行包。
+XTermPro 面向开发者、系统管理员和平台工程师，将远程连接、终端操作、文件传输、笔记、脚本与网络诊断集中到一个多标签桌面工作区。产品支持 Windows、macOS 与 Linux；本目录提供 Windows 和 macOS 的 **3.2.23** 运行包。
 
 ### 下载与版本
 
@@ -18,10 +18,10 @@ XTermPro 面向开发者、系统管理员和平台工程师，将远程连接�
 
 | 平台 | 安装包 | 使用方式 |
 | --- | --- | --- |
-| Windows x64 | [3.2.22 安装版](https://github.com/jackm1688/xtermpro/releases/download/v3.2.22/xtermpro-3.2.22-windows-x64-installer.zip) | 解压后运行安装程序 |
-| Windows x64 | [3.2.22 便携版](https://github.com/jackm1688/xtermpro/releases/download/v3.2.22/xtermpro-3.2.22-windows-x64.zip) | 完整解压后启动 |
-| macOS Apple Silicon | [3.2.22 arm64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.22/xtermpro-3.2.22-arm64.dmg) | 打开 DMG，拖入应用程序目录 |
-| macOS Intel | [3.2.22 amd64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.22/xtermpro-3.2.22-amd64.dmg) | 打开 DMG，拖入应用程序目录 |
+| Windows x64 | [3.2.23 安装版](https://github.com/jackm1688/xtermpro/releases/download/v3.2.23/xtermpro-3.2.23-windows-x64-installer.zip) | 解压后运行安装程序 |
+| Windows x64 | [3.2.23 便携版](https://github.com/jackm1688/xtermpro/releases/download/v3.2.23/xtermpro-3.2.23-windows-x64.zip) | 完整解压后启动 |
+| macOS Apple Silicon | [3.2.23 arm64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.23/xtermpro-3.2.23-arm64.dmg) | 打开 DMG，拖入应用程序目录 |
+| macOS Intel | [3.2.23 amd64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.23/xtermpro-3.2.23-amd64.dmg) | 打开 DMG，拖入应用程序目录 |
 
 Linux 运行包未包含在本目录中，请通过产品发布方获取。升级前请关闭应用并备份重要配置；安装包的存在不代表所有平台和功能均已完成验收。
 
@@ -34,9 +34,11 @@ Linux 运行包未包含在本目录中，请通过产品发布方获取。升�
 - **运维工具**：脚本库、多目标命令、终端文本记录、录像与截图、会话日志、网络计算、网络监控和运行资源查看。
 - **Kubernetes / Cilium**：集群连接与凭据管理、资源浏览、日志、Exec、端口转发、监控和巡检报告；实际能力取决于集群组件与 RBAC 权限。
 - **外观与设置**：中文与英文、主题与终端背景、快捷键、凭据与密钥管理、命令拦截、配置备份与恢复。
-- **可选能力**：AI 助手、Agent / iChat 与云同步依赖对应服务、账号和配置。RDP 当前仍为开发测试能力。
+- **可选能力**：AI 助手、Agent / iChat 依赖对应服务、账号和配置。RDP 当前仍为开发测试能力。
 
 3.2.22 起移除内置 Office 创建、导入、预览和编辑功能；已有文件保留，可通过“导出副本”取回原件。较早手册中的相关说明不适用于当前版本。
+
+3.2.23 起停用会话配置的腾讯云 COS 备份与同步。独立本地备份、已有备份与快照，以及通用 S3/COS 文件管理不受影响。
 
 ### 使用文档
 
@@ -45,7 +47,7 @@ Linux 运行包未包含在本目录中，请通过产品发布方获取。升�
 | [图文用户手册（HTML）](xtermpro-user-manual.html) | 安装、连接、终端、文件、笔记、Kubernetes、设置与故障排查，可下载后离线打开 |
 | [用户手册（PDF）](XTermPro用户手册.pdf) · [Word](XTermPro用户手册.docx) | 较早版本的补充资料，界面与功能以当前运行包为准 |
 
-图文用户手册的更新记录截至 2026-09-28，未覆盖 3.2.22 的全部变更。HTML 文档建议下载后用浏览器打开。
+图文用户手册的更新记录截至 2026-09-28，未覆盖 3.2.23 的全部变更。HTML 文档建议下载后用浏览器打开。
 
 ### 工作区布局
 
@@ -85,7 +87,7 @@ Linux 运行包未包含在本目录中，请通过产品发布方获取。升�
 - 不要把密码、私钥、Token 或云密钥写入脚本、截图、日志和公开文档。
 - 批量发送命令或执行脚本前，逐项核对目标会话和命令内容。
 - 导入配置或恢复备份前，先预览变更并保留现有配置副本。
-- RDP、集群写操作、代理转发和云同步应先在测试环境验证。
+- RDP、集群写操作、代理转发应先在测试环境验证。
 - 不要使用来源不明、签名异常或校验值不一致的运行包。
 - 升级前关闭活动连接并备份重要配置；不要直接覆盖仍在运行的旧版本文件。
 
@@ -93,7 +95,7 @@ Linux 运行包未包含在本目录中，请通过产品发布方获取。升�
 
 - 功能可用性可能因平台、运行包版本、授权状态、服务端部署和账号权限而不同。
 - RDP 当前属于开发测试能力，不应在未验证的关键业务场景中替代专业远程桌面方案。
-- Kubernetes、Cilium、AI、Agent、iChat、录屏和云同步需要相应环境、权限或外部服务。
+- Kubernetes、Cilium、AI、Agent、iChat、录屏需要相应环境、权限或外部服务。
 - 实际功能、限制和错误提示以当前运行包中的界面为准。
 
 ### 支持与问题反馈
@@ -116,16 +118,16 @@ XTermPro 使用的第三方组件分别受其自身许可证约束；第三方�
 
 ### Overview
 
-XTermPro brings remote connections, terminals, file transfers, notes, scripts, and network diagnostics into one tabbed desktop workspace for developers, system administrators, and platform engineers. The product supports Windows, macOS, and Linux. This directory contains **3.2.22** packages for Windows and macOS.
+XTermPro brings remote connections, terminals, file transfers, notes, scripts, and network diagnostics into one tabbed desktop workspace for developers, system administrators, and platform engineers. The product supports Windows, macOS, and Linux. This directory contains **3.2.23** packages for Windows and macOS.
 
 ### Downloads
 
 | Platform | Package | Usage |
 | --- | --- | --- |
-| Windows x64 | [3.2.22 installer](https://github.com/jackm1688/xtermpro/releases/download/v3.2.22/xtermpro-3.2.22-windows-x64-installer.zip) | Extract and run the installer |
-| Windows x64 | [3.2.22 portable](https://github.com/jackm1688/xtermpro/releases/download/v3.2.22/xtermpro-3.2.22-windows-x64.zip) | Extract the entire archive before launching |
-| macOS Apple Silicon | [3.2.22 arm64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.22/xtermpro-3.2.22-arm64.dmg) | Open the DMG and drag the app into Applications |
-| macOS Intel | [3.2.22 amd64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.22/xtermpro-3.2.22-amd64.dmg) | Open the DMG and drag the app into Applications |
+| Windows x64 | [3.2.23 installer](https://github.com/jackm1688/xtermpro/releases/download/v3.2.23/xtermpro-3.2.23-windows-x64-installer.zip) | Extract and run the installer |
+| Windows x64 | [3.2.23 portable](https://github.com/jackm1688/xtermpro/releases/download/v3.2.23/xtermpro-3.2.23-windows-x64.zip) | Extract the entire archive before launching |
+| macOS Apple Silicon | [3.2.23 arm64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.23/xtermpro-3.2.23-arm64.dmg) | Open the DMG and drag the app into Applications |
+| macOS Intel | [3.2.23 amd64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.23/xtermpro-3.2.23-amd64.dmg) | Open the DMG and drag the app into Applications |
 
 Linux packages are available separately from the publisher. Close the app and back up important configuration before upgrading. Package availability does not establish complete platform or feature acceptance.
 
@@ -138,9 +140,11 @@ Linux packages are available separately from the publisher. Close the app and ba
 - **Operations tools:** scripts, multiple command targets, terminal text recording, video recording, screenshots, session logs, network calculations, network monitoring and process/resource views.
 - **Kubernetes / Cilium:** managed connections and credentials, resource browsing, logs, Exec, port forwarding, monitoring and inspection reports. Availability depends on cluster components and RBAC.
 - **Appearance and settings:** Chinese and English, themes and terminal backgrounds, shortcuts, credentials and keys, command interception, configuration backup and restore.
-- **Optional capabilities:** AI, Agent / iChat and cloud sync require the corresponding services, accounts and configuration. RDP remains a development-preview capability.
+- **Optional capabilities:** AI and Agent / iChat require the corresponding services, accounts and configuration. RDP remains a development-preview capability.
 
 Built-in Office creation, import, preview, and editing were removed in 3.2.22. Existing files are retained and can be retrieved with Export Copy. Related instructions in older manuals do not apply to this version.
+
+As of 3.2.23, Tencent Cloud COS backup and sync for session configuration are disabled. Local backups, existing backups and snapshots, and general S3/COS file management remain available.
 
 ### Documentation
 
@@ -151,7 +155,7 @@ The following documents are in Chinese. Download HTML files and open them in a b
 | [Illustrated user manual (HTML)](xtermpro-user-manual.html) | Installation, connections, terminals, files, notes, Kubernetes, settings and troubleshooting |
 | [Earlier user manual (PDF)](XTermPro用户手册.pdf) · [Word](XTermPro用户手册.docx) | Supplementary older documentation; the installed package determines current behavior |
 
-The illustrated manual's change history ends on September 28, 2026 and does not cover every 3.2.22 change.
+The illustrated manual's change history ends on September 28, 2026 and does not cover every 3.2.23 change.
 
 ### Workspace layout
 
@@ -191,7 +195,7 @@ Install or extract the runtime package according to the instructions supplied fo
 - Never place passwords, private keys, tokens, or cloud secrets in scripts, screenshots, logs, or public documentation.
 - Review every target session and command before batch dispatch or script execution.
 - Preview changes and preserve the current configuration before importing or restoring a backup.
-- Validate RDP, cluster write operations, proxy forwarding, and cloud sync in a test environment first.
+- Validate RDP, cluster write operations, and proxy forwarding in a test environment first.
 - Do not use packages from unknown sources or packages with invalid signatures or mismatched checksums.
 - Close active connections and back up important configuration before upgrading. Do not overwrite files belonging to a running version.
 
@@ -199,7 +203,7 @@ Install or extract the runtime package according to the instructions supplied fo
 
 - Feature availability may vary by platform, package version, activation state, server deployment, and account permissions.
 - RDP is currently a development-preview capability and should not replace a dedicated remote-desktop solution in unverified critical workflows.
-- Kubernetes, Cilium, AI, Agent, iChat, recording, and cloud sync require the corresponding environment, permissions, or external services.
+- Kubernetes, Cilium, AI, Agent, iChat, and recording require the corresponding environment, permissions, or external services.
 - The interface, limitations, and error messages in the installed package are authoritative for that release.
 
 ### Support and issue reports
