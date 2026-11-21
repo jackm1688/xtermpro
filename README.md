@@ -10,7 +10,7 @@
 
 ### 产品简介
 
-XTermPro 面向开发者、系统管理员和平台工程师，将远程连接、终端操作、文件传输、笔记、脚本与网络诊断集中到一个多标签桌面工作区。产品支持 Windows、macOS 与 Linux；本次发布提供 Windows、macOS 和 Linux 的 **3.2.26** 安装包。
+XTermPro 面向开发者、系统管理员和平台工程师，将远程连接、终端操作、文件传输、笔记、脚本与网络诊断集中到一个多标签桌面工作区。产品支持 Windows、macOS 与 Linux；本次发布提供 macOS 和 Ubuntu 的 **3.2.27** 安装包；Windows 和 TencentOS 可下载 3.2.26。
 
 ### 下载与版本
 
@@ -20,9 +20,9 @@ XTermPro 面向开发者、系统管理员和平台工程师，将远程连接�
 | --- | --- | --- |
 | Windows x64 | [3.2.26 安装版](https://github.com/jackm1688/xtermpro/releases/download/v3.2.26/xtermpro-3.2.26-windows-x64-installer.zip) | 解压后运行安装程序 |
 | Windows x64 | [3.2.26 便携版](https://github.com/jackm1688/xtermpro/releases/download/v3.2.26/xtermpro-3.2.26-windows-x64.zip) | 完整解压后启动 |
-| macOS Apple Silicon | [3.2.26 arm64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.26/xtermpro-3.2.26-arm64.dmg) | 打开 DMG，拖入应用程序目录 |
-| macOS Intel | [3.2.26 amd64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.26/xtermpro-3.2.26-amd64.dmg) | 打开 DMG，拖入应用程序目录 |
-| Ubuntu 24.04 amd64 | [3.2.26 DEB](https://github.com/jackm1688/xtermpro/releases/download/v3.2.26/xtermpro_3.2.26_ubuntu-24.04_amd64.deb) | 使用 apt 安装 |
+| macOS Apple Silicon | [3.2.27 arm64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.27/xtermpro-3.2.27-arm64.dmg) | 打开 DMG，拖入应用程序目录 |
+| macOS Intel | [3.2.27 amd64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.27/xtermpro-3.2.27-amd64.dmg) | 打开 DMG，拖入应用程序目录 |
+| Ubuntu 24.04 amd64 | [3.2.27 DEB](https://github.com/jackm1688/xtermpro/releases/download/v3.2.27/xtermpro_3.2.27_ubuntu-24.04_amd64.deb) | 使用 apt 安装 |
 | TencentOS 4 x86_64 | [3.2.26 RPM](https://github.com/jackm1688/xtermpro/releases/download/v3.2.26/xtermpro-3.2.26-1.tencentos4.x86_64.rpm) | 使用 dnf 安装 |
 
 升级前请关闭应用并备份重要配置；安装包的存在不代表所有平台和功能均已完成验收。
@@ -49,7 +49,7 @@ XTermPro 面向开发者、系统管理员和平台工程师，将远程连接�
 | [图文用户手册（HTML）](xtermpro-user-manual.html) | 安装、连接、终端、文件、笔记、Kubernetes、设置与故障排查，可下载后离线打开 |
 | [用户手册（PDF）](XTermPro用户手册.pdf) · [Word](XTermPro用户手册.docx) | 较早版本的补充资料，界面与功能以当前运行包为准 |
 
-图文用户手册的更新记录截至 2026-09-28，未覆盖 3.2.26 的全部变更。HTML 文档建议下载后用浏览器打开。
+图文用户手册的更新记录截至 2026-09-28，未覆盖 3.2.27 的全部变更。HTML 文档建议下载后用浏览器打开。
 
 ### 工作区布局
 
@@ -120,7 +120,7 @@ XTermPro 使用的第三方组件分别受其自身许可证约束；第三方�
 
 ### Overview
 
-XTermPro brings remote connections, terminals, file transfers, notes, scripts, and network diagnostics into one tabbed desktop workspace for developers, system administrators, and platform engineers. The product supports Windows, macOS, and Linux. This release provides **3.2.26** packages for Windows, macOS, and Linux.
+XTermPro brings remote connections, terminals, file transfers, notes, scripts, and network diagnostics into one tabbed desktop workspace for developers, system administrators, and platform engineers. The product supports Windows, macOS, and Linux. This release provides **3.2.27** packages for macOS and Ubuntu. Windows and TencentOS packages are available for 3.2.26.
 
 ### Downloads
 
@@ -128,9 +128,9 @@ XTermPro brings remote connections, terminals, file transfers, notes, scripts, a
 | --- | --- | --- |
 | Windows x64 | [3.2.26 installer](https://github.com/jackm1688/xtermpro/releases/download/v3.2.26/xtermpro-3.2.26-windows-x64-installer.zip) | Extract and run the installer |
 | Windows x64 | [3.2.26 portable](https://github.com/jackm1688/xtermpro/releases/download/v3.2.26/xtermpro-3.2.26-windows-x64.zip) | Extract the entire archive before launching |
-| macOS Apple Silicon | [3.2.26 arm64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.26/xtermpro-3.2.26-arm64.dmg) | Open the DMG and drag the app into Applications |
-| macOS Intel | [3.2.26 amd64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.26/xtermpro-3.2.26-amd64.dmg) | Open the DMG and drag the app into Applications |
-| Ubuntu 24.04 amd64 | [3.2.26 DEB](https://github.com/jackm1688/xtermpro/releases/download/v3.2.26/xtermpro_3.2.26_ubuntu-24.04_amd64.deb) | Install with apt |
+| macOS Apple Silicon | [3.2.27 arm64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.27/xtermpro-3.2.27-arm64.dmg) | Open the DMG and drag the app into Applications |
+| macOS Intel | [3.2.27 amd64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.27/xtermpro-3.2.27-amd64.dmg) | Open the DMG and drag the app into Applications |
+| Ubuntu 24.04 amd64 | [3.2.27 DEB](https://github.com/jackm1688/xtermpro/releases/download/v3.2.27/xtermpro_3.2.27_ubuntu-24.04_amd64.deb) | Install with apt |
 | TencentOS 4 x86_64 | [3.2.26 RPM](https://github.com/jackm1688/xtermpro/releases/download/v3.2.26/xtermpro-3.2.26-1.tencentos4.x86_64.rpm) | Install with dnf |
 
 Close the app and back up important configuration before upgrading. Package availability does not establish complete platform or feature acceptance.
@@ -159,7 +159,7 @@ The following documents are in Chinese. Download HTML files and open them in a b
 | [Illustrated user manual (HTML)](xtermpro-user-manual.html) | Installation, connections, terminals, files, notes, Kubernetes, settings and troubleshooting |
 | [Earlier user manual (PDF)](XTermPro用户手册.pdf) · [Word](XTermPro用户手册.docx) | Supplementary older documentation; the installed package determines current behavior |
 
-The illustrated manual's change history ends on September 28, 2026 and does not cover every 3.2.26 change.
+The illustrated manual's change history ends on September 28, 2026 and does not cover every 3.2.27 change.
 
 ### Workspace layout
 
