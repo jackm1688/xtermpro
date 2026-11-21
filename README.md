@@ -10,7 +10,7 @@
 
 ### 产品简介
 
-XTermPro 面向开发者、系统管理员和平台工程师，将远程连接、终端操作、文件传输、笔记、脚本与网络诊断集中到一个多标签桌面工作区。产品支持 Windows、macOS 与 Linux；本次发布提供 macOS 和 Ubuntu 的 **3.2.27** 安装包；Windows 和 TencentOS 可下载 3.2.26。
+XTermPro 面向开发者、系统管理员和平台工程师，将远程连接、终端操作、文件传输、笔记、脚本与网络诊断集中到一个多标签桌面工作区。产品支持 Windows、macOS 与 Linux；本次发布提供 Windows、macOS 和 Ubuntu 的 **3.2.27** 安装包；TencentOS 可下载 3.2.26。
 
 ### 下载与版本
 
@@ -18,8 +18,8 @@ XTermPro 面向开发者、系统管理员和平台工程师，将远程连接�
 
 | 平台 | 安装包 | 使用方式 |
 | --- | --- | --- |
-| Windows x64 | [3.2.26 安装版](https://github.com/jackm1688/xtermpro/releases/download/v3.2.26/xtermpro-3.2.26-windows-x64-installer.zip) | 解压后运行安装程序 |
-| Windows x64 | [3.2.26 便携版](https://github.com/jackm1688/xtermpro/releases/download/v3.2.26/xtermpro-3.2.26-windows-x64.zip) | 完整解压后启动 |
+| Windows x64 | [3.2.27 安装版](https://github.com/jackm1688/xtermpro/releases/download/v3.2.27/xtermpro-3.2.27-windows-x64-installer.zip) | 解压后运行安装程序 |
+| Windows x64 | [3.2.27 便携版](https://github.com/jackm1688/xtermpro/releases/download/v3.2.27/xtermpro-3.2.27-windows-x64.zip) | 完整解压后启动 |
 | macOS Apple Silicon | [3.2.27 arm64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.27/xtermpro-3.2.27-arm64.dmg) | 打开 DMG，拖入应用程序目录 |
 | macOS Intel | [3.2.27 amd64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.27/xtermpro-3.2.27-amd64.dmg) | 打开 DMG，拖入应用程序目录 |
 | Ubuntu 24.04 amd64 | [3.2.27 DEB](https://github.com/jackm1688/xtermpro/releases/download/v3.2.27/xtermpro_3.2.27_ubuntu-24.04_amd64.deb) | 使用 apt 安装 |
@@ -120,14 +120,14 @@ XTermPro 使用的第三方组件分别受其自身许可证约束；第三方�
 
 ### Overview
 
-XTermPro brings remote connections, terminals, file transfers, notes, scripts, and network diagnostics into one tabbed desktop workspace for developers, system administrators, and platform engineers. The product supports Windows, macOS, and Linux. This release provides **3.2.27** packages for macOS and Ubuntu. Windows and TencentOS packages are available for 3.2.26.
+XTermPro brings remote connections, terminals, file transfers, notes, scripts, and network diagnostics into one tabbed desktop workspace for developers, system administrators, and platform engineers. The product supports Windows, macOS, and Linux. This release provides **3.2.27** packages for Windows, macOS, and Ubuntu. TencentOS packages are available for 3.2.26.
 
 ### Downloads
 
 | Platform | Package | Usage |
 | --- | --- | --- |
-| Windows x64 | [3.2.26 installer](https://github.com/jackm1688/xtermpro/releases/download/v3.2.26/xtermpro-3.2.26-windows-x64-installer.zip) | Extract and run the installer |
-| Windows x64 | [3.2.26 portable](https://github.com/jackm1688/xtermpro/releases/download/v3.2.26/xtermpro-3.2.26-windows-x64.zip) | Extract the entire archive before launching |
+| Windows x64 | [3.2.27 installer](https://github.com/jackm1688/xtermpro/releases/download/v3.2.27/xtermpro-3.2.27-windows-x64-installer.zip) | Extract and run the installer |
+| Windows x64 | [3.2.27 portable](https://github.com/jackm1688/xtermpro/releases/download/v3.2.27/xtermpro-3.2.27-windows-x64.zip) | Extract the entire archive before launching |
 | macOS Apple Silicon | [3.2.27 arm64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.27/xtermpro-3.2.27-arm64.dmg) | Open the DMG and drag the app into Applications |
 | macOS Intel | [3.2.27 amd64](https://github.com/jackm1688/xtermpro/releases/download/v3.2.27/xtermpro-3.2.27-amd64.dmg) | Open the DMG and drag the app into Applications |
 | Ubuntu 24.04 amd64 | [3.2.27 DEB](https://github.com/jackm1688/xtermpro/releases/download/v3.2.27/xtermpro_3.2.27_ubuntu-24.04_amd64.deb) | Install with apt |
